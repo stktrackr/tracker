@@ -60,6 +60,40 @@
 		});
 	});
 
+	$(document).ready(function () {
+	$('#support-form').on('submit', function (e) {
+		e.preventDefault();
+
+		// Mostrar pantalla de carga
+		$('#form-response').removeClass('alert-success alert-danger').addClass('alert-info').text('Enviando...').show();
+
+		const name = $('#name').val();
+		const email = $('#email').val();
+		const message = $('#message').val();
+
+		// Simulación de envío de correo
+		setTimeout(() => {
+			// Aquí iría la lógica real de envío de correo
+
+			// Simular éxito en el envío
+			$('#form-response').removeClass('alert-info').addClass('alert-success').text('¡Mensaje enviado exitosamente!');
+
+			// Ocultar modal después de 2 segundos
+			setTimeout(() => {
+				$('#contactModal').modal('hide');
+				$('#form-response').hide();
+				$('#support-form')[0].reset();
+			}, 2000);
+		}, 2000);
+	});
+
+	// Limpiar mensajes al cerrar la ventana modal
+	$('#contactModal').on('hidden.bs.modal', function () {
+		$('#form-response').hide();
+		$('#support-form')[0].reset();
+	});
+	});
+
 	/////////////////////////////////////////
 
 	// Traducción de la página
