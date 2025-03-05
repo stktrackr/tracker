@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Price Tracker</title>
     <link rel="stylesheet" href="./css/styles.css">
-    <script defer src="./js/script.js"></script>
+    <script src="./js/script.js"></script>
 </head>
 <body>
     <header>
@@ -24,11 +24,13 @@
     <section class="product-dashboard">
         <h2>📊 Product Market Overview</h2>
         <div class="table-container">
+            <div id="loader">Loading products...</div>
             <table id="product-table">
                 <thead>
                     <tr>
                         <th>Image</th>
                         <th>Product</th>
+                        <th>Description</th>
                         <th>Category</th>
                         <th>Price</th>
                         <th>Last Updated</th>
