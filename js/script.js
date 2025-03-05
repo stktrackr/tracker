@@ -1,18 +1,19 @@
 document.addEventListener("DOMContentLoaded", function () {
-    loadDefaultProducts(); // Cargar productos por defecto
-});
+    const searchBtn = document.getElementById("search-btn");
+    const searchQuery = document.getElementById("search-query");
 
-const searchBtn = document.getElementById("search-btn");
-const searchQuery = document.getElementById("search-query");
-const productList = document.querySelector(".products-container");
-
-searchBtn.addEventListener("click", function () {
-    const query = searchQuery.value.trim();
-    if (query === "") {
-        alert("Please enter a product name!");
-        return;
+    if (searchBtn && searchQuery) {
+        searchBtn.addEventListener("click", function () {
+            const query = searchQuery.value.trim();
+            if (query === "") {
+                alert("Please enter a product name!");
+                return;
+            }
+            fetchProducts(query);
+        });
+    } else {
+        console.error("Search elements not found in the DOM.");
     }
-    fetchProducts(query);
 });
 
 async function loadDefaultProducts() {
