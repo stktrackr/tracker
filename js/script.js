@@ -81,7 +81,7 @@ function updatePagination() {
 }
 
 async function fetchProducts(query) {
-    const API_KEY = "TU_API_KEY";
+    const API_KEY = "53C09080269C4EFB88ECE212F519E7E4";
     const BASE_URL = `https://api.rainforestapi.com/request?api_key=${API_KEY}&type=search&amazon_domain=amazon.com&search_term=${encodeURIComponent(query)}&sort_by=price_low_to_high`;
 
     try {
