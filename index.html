@@ -23,30 +23,29 @@
         </nav>
     </header>
 
-    <!-- Search Section -->
-    <div class="search-container">
-        <input type="text" id="search-query" placeholder="Search for a product...">
-        
-        <!-- Dropdown para filtrar categorías -->
-        <select id="category-filter">
-            <option value="all">All Categories</option>
-            <option value="electronics">Electronics</option>
-            <option value="books">Books</option>
-            <option value="video-games">Video Games</option>
-            <option value="toys">Toys</option>
-        </select>
-        
-        <button id="search-btn">🔍 Search</button>
-    </div>
-
-    <!-- Product Display Section -->
-    <section id="product-list">
-        <h2>Search Results</h2>
-        <div class="products-container">
-            <!-- Products will be loaded dynamically -->
+    <section class="product-dashboard">
+        <h2>📊 Product Market Overview</h2>
+        <div class="table-container">
+            <table id="product-table">
+                <thead>
+                    <tr>
+                        <th>Image</th>
+                        <th>Product</th>
+                        <th>Category</th>
+                        <th>Price</th>
+                        <th>Last Updated</th>
+                        <th>Stock</th>
+                        <th>Rating</th>
+                        <th>View</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Aquí se insertarán dinámicamente los productos -->
+                </tbody>
+            </table>
         </div>
-        <div class="pagination"></div>
     </section>
+    
 
     <!-- Price History Section -->
     <section id="price-history">
