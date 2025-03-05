@@ -9,16 +9,19 @@ document.addEventListener("DOMContentLoaded", function () {
             alert("Please enter a product name!");
             return;
         }
+        console.log("Searching for:", query);
         fetchProducts(query);
     });
 
     async function fetchProducts(query) {
-        const API_KEY = "53C09080269C4EFB88ECE212F519E7E4"; // Sustituye con tu clave de Rainforest API
+        const API_KEY = "TU_API_KEY"; // Inserta tu API Key
         const BASE_URL = `https://api.rainforestapi.com/request?api_key=${API_KEY}&type=search&amazon_domain=amazon.com&search_term=${encodeURIComponent(query)}`;
 
         try {
+            console.log("Fetching from API:", BASE_URL);
             const response = await fetch(BASE_URL);
             const data = await response.json();
+            console.log("API Response:", data);
 
             if (!data.search_results) {
                 productList.innerHTML = "<p>No products found.</p>";
