@@ -1,35 +1,32 @@
-const express = require("express");
-const cors = require("cors");
+const express = require('express');
+const cors = require('cors');
+const axios = require('axios');
+require('dotenv').config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Habilitar CORS para evitar problemas con el frontend
+// Middleware
 app.use(cors());
+app.use(express.json());
 
-// Servir archivos estáticos desde la carpeta "public"
-app.use(express.static("public"));
-
-// Ruta de prueba para verificar que el servidor funciona
-app.get("/api/status", (req, res) => {
-    res.json({ message: "Server is running on Render!" });
-});
-
-// Ruta para manejar los productos (Ejemplo de API con datos de prueba)
-app.get("/api/products", async (req, res) => {
+// Ruta para obtener datos desde la API
+app.get('/api/products', async (req, res) => {
     try {
-        const products = [
-            { id: 1, name: "PlayStation 5", price: "$499", rating: "4.8", stock: "In Stock", link: "https://amazon.com/ps5" },
-            { id: 2, name: "RTX 3060", price: "$379", rating: "4.5", stock: "In Stock", link: "https://amazon.com/rtx3060" },
-            { id: 3, name: "iPhone 14 Pro", price: "$999", rating: "4.7", stock: "Out of Stock", link: "https://amazon.com/iphone14" }
-        ];
-        res.json(products);
+        const response = await axios.get('URL_DE_LA_NUEVA_API_AQUI');
+        res.json(response.data);
     } catch (error) {
-        res.status(500).json({ error: "Error fetching products" });
+        console.error('Error fetching data:', error);
+        res.status(500).json({ message: 'Error retrieving data' });
     }
 });
 
-// Iniciar el servidor en el puerto definido
+// Ruta para verificar que el servidor corre bien
+app.get('/', (req, res) => {
+    res.send('🚀 Price Tracker API is running!');
+});
+
+// Iniciar servidor
 app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
+    console.log(`✅ Server running on port ${PORT}`);
 });

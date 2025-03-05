@@ -4,47 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Live Price Tracker</title>
-    <link rel="stylesheet" href="./css/styles.css">
-    <script defer src="./js/script.js"></script>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <div class="logo">
-            <h1>📊 Live Price Tracker</h1>
-            <p>Real-time market data at your fingertips</p>
-        </div>
+        <h1>📊 Live Price Tracker</h1>
+        <p>Real-time market data at your fingertips</p>
     </header>
 
-    <main>
-        <section class="market-overview">
-            <h2>🔥 Market Overview</h2>
-            <label for="category-filter">Filter by Category:</label>
-            <select id="category-filter">
-                <option value="all">All</option>
-                <option value="electronics">Electronics</option>
-                <option value="home">Home</option>
-                <option value="beauty">Beauty</option>
-                <option value="sports">Sports</option>
-            </select>
-            <div id="loading">🔄 Loading live market data...</div>
-            <table id="product-table">
-                <thead>
-                    <tr>
-                        <th>📷 Product</th>
-                        <th>💰 Price</th>
-                        <th>📈 Trend</th>
-                        <th>📦 Stock</th>
-                        <th>⭐ Rating</th>
-                        <th>🔗 View</th>
-                    </tr>
-                </thead>
-                <tbody></tbody>
-            </table>
-        </section>
-    </main>
+    <section class="market-overview">
+        <h2>🔥 Market Overview</h2>
+        <label for="category">Filter by Category:</label>
+        <select id="category">
+            <option value="all">All</option>
+            <option value="electronics">Electronics</option>
+            <option value="fashion">Fashion</option>
+        </select>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>📷 Product</th>
+                    <th>💰 Price</th>
+                    <th>📈 Trend</th>
+                    <th>📦 Stock</th>
+                    <th>⭐ Rating</th>
+                    <th>🔗 View</th>
+                </tr>
+            </thead>
+            <tbody id="product-list">
+                <tr><td colspan="6">Loading live market data...</td></tr>
+            </tbody>
+        </table>
+    </section>
 
-    <footer>
-        <p>© 2024 Price Tracker | Live Updates</p>
-    </footer>
+    <script src="script.js"></script>
 </body>
 </html>
