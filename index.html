@@ -3,38 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Price Tracker - Dashboard</title>
+    <title>Price Tracker - Live Market</title>
     <link rel="stylesheet" href="./css/styles.css">
     <script defer src="./js/script.js"></script>
 </head>
 <body>
     <header>
-        <h1>📊 Price Tracker Dashboard</h1>
+        <h1>📊 Live Price Tracker</h1>
+        <p>Real-time market data at your fingertips</p>
     </header>
 
-    <section class="dashboard-container">
-        <h2>Market Overview</h2>
+    <section class="market-container">
+        <h2>🔥 Market Overview</h2>
+        <div class="filter-section">
+            <label for="category-filter">Filter by Category:</label>
+            <select id="category-filter">
+                <option value="all">All</option>
+                <option value="electronics">Electronics</option>
+                <option value="fashion">Fashion</option>
+                <option value="home">Home</option>
+                <option value="gaming">Gaming</option>
+            </select>
+        </div>
+
+        <div id="loader">Loading live market data...</div>
+
         <table id="product-table">
             <thead>
                 <tr>
-                    <th>Image</th>
+                    <th>📷</th>
                     <th>Product</th>
-                    <th>Price ($)</th>
-                    <th>Stock</th>
-                    <th>Rating</th>
-                    <th>Last Updated</th>
-                    <th>View</th>
+                    <th>💰 Price</th>
+                    <th>📉 Trend</th>
+                    <th>📦 Stock</th>
+                    <th>⭐ Rating</th>
+                    <th>🔗 View</th>
                 </tr>
             </thead>
-            <div id="loader">Loading products...</div>
             <tbody>
-                <!-- Data will be inserted here dynamically -->
+                <!-- Data loads dynamically here -->
             </tbody>
         </table>
     </section>
 
     <footer>
-        <p>© 2024 Price Tracker. All Rights Reserved.</p>
+        <p>© 2024 Price Tracker | Live Updates</p>
     </footer>
 </body>
 </html>

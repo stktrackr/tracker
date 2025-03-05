@@ -1,81 +1,94 @@
-/* General Styles */
+/* Apple-Inspired Minimalist Theme */
+@import url('https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;600;700&display=swap');
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
-    color: #333;
+    font-family: "SF Pro Display", sans-serif;
+    background-color: #111;
+    color: #f5f5f5;
+    text-align: center;
     margin: 0;
     padding: 0;
 }
 
+/* Header */
 header {
-    background-color: #15161D;
-    color: white;
-    padding: 15px;
-    text-align: center;
-    font-size: 20px;
+    background: linear-gradient(90deg, #0f0f0f, #232323);
+    padding: 20px;
+    font-size: 22px;
+    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
 }
 
-/* Loader */
-#loader {
-    text-align: center;
-    font-size: 18px;
-    font-weight: bold;
-    margin: 20px;
-}
-
-/* Dashboard */
-.dashboard-container {
-    width: 90%;
+/* Market Overview */
+.market-container {
+    width: 80%;
     margin: auto;
-    text-align: center;
     padding: 20px;
 }
 
+/* Filter Section */
+.filter-section {
+    margin-bottom: 20px;
+}
+
+select {
+    padding: 8px;
+    font-size: 16px;
+    border-radius: 6px;
+    background-color: #222;
+    color: white;
+    border: 1px solid #555;
+}
+
+/* Table */
 table {
     width: 100%;
     border-collapse: collapse;
-    background: white;
-    padding: 10px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
 }
 
 th, td {
-    padding: 12px;
-    border-bottom: 1px solid #ddd;
+    padding: 15px;
     text-align: center;
 }
 
 th {
-    background-color: #15161D;
+    background-color: #222;
     color: white;
 }
 
-/* Uniform Product Image Size */
 td img {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     object-fit: cover;
-    border-radius: 5px;
+    border-radius: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #1c1c1c;
 }
 
 tr:hover {
-    background-color: #f5f5f5;
+    background-color: #333;
+    transition: 0.3s;
 }
 
-@media (max-width: 768px) {
-    table {
-        font-size: 12px;
-    }
+/* Price Change Color */
+.price-up {
+    color: #ff4c4c;
+}
+
+.price-down {
+    color: #4caf50;
+}
+
+.price-neutral {
+    color: #bbb;
 }
 
 /* Footer */
 footer {
     background-color: #15161D;
-    color: white;
-    text-align: center;
     padding: 15px;
-    position: relative;
-    bottom: 0;
-    width: 100%;
+    margin-top: 20px;
 }
