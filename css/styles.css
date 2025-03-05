@@ -36,11 +36,18 @@ nav ul li a {
 }
 
 /* Search Section */
+
+section {
+    margin: 20px auto;
+    max-width: 80%;
+    text-align: center;
+}
+
 .search-container {
+    margin-top: 10px;
     display: flex;
     justify-content: center;
-    align-items: center;
-    margin: 20px;
+    gap: 10px;
 }
 
 .search-container input {
@@ -72,9 +79,9 @@ nav ul li a {
 
 .products-container {
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
-    gap: 20px;
+    justify-content: center;
+    gap: 15px;
 }
 
 .product-card {
