@@ -73,6 +73,27 @@ tr:hover {
     transition: 0.3s;
 }
 
+.product-card {
+    border: 1px solid #ddd;
+    padding: 10px;
+    width: 200px;
+    text-align: center;
+    margin: 10px;
+    display: inline-block;
+}
+
+.product-card img {
+    width: 100px;
+    height: auto;
+}
+
+.product-card a {
+    display: block;
+    margin-top: 10px;
+    color: blue;
+    text-decoration: none;
+}
+
 /* Price Change Color */
 .price-up {
     color: #ff4c4c;
