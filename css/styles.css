@@ -1,40 +1,67 @@
+/* General */
 body {
     font-family: 'Arial', sans-serif;
     background-color: #111;
-    color: #ddd;
+    color: #fff;
     text-align: center;
+    margin: 0;
+    padding: 0;
 }
 
+/* Encabezado */
 header {
-    background: linear-gradient(135deg, #1f1f1f, #000);
+    background: linear-gradient(to right, #ff8c00, #ff4500);
     padding: 20px;
-    border-radius: 8px;
+    font-size: 1.5em;
 }
 
+/* Market Overview */
 .market-overview {
-    margin-top: 20px;
-    padding: 20px;
+    margin: 20px auto;
+    padding: 15px;
     background: #222;
     border-radius: 10px;
+    width: 80%;
 }
 
+/* Tabla */
 table {
-    width: 100%;
+    width: 90%;
+    margin: 20px auto;
     border-collapse: collapse;
-    margin-top: 20px;
+    background: #222;
+    border-radius: 10px;
+    overflow: hidden;
 }
 
 th, td {
     padding: 10px;
-    border: 1px solid #444;
+    border-bottom: 1px solid #444;
 }
 
 th {
-    background-color: #333;
+    background: #333;
 }
 
-select {
-    padding: 8px;
-    background: #000;
-    color: white;
+td img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+}
+
+/* Botones */
+button {
+    background: #ff4500;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    table {
+        width: 100%;
+    }
 }
