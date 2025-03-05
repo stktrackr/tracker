@@ -2,13 +2,13 @@
 	"use strict"
 
 	// Mobile Nav toggle
-	$('.menu-toggle > a').on('click', function (e) {
+	$('.menu-toggle > a').on('click', function(e) {
 		e.preventDefault();
 		$('#responsive-nav').toggleClass('active');
-	})
+	});
 
 	// Fix cart dropdown from closing
-	$('.cart-dropdown').on('click', function (e) {
+	$('.cart-dropdown').on('click', function(e) {
 		e.stopPropagation();
 	});
 
@@ -17,7 +17,7 @@
 	// Products Slick
 	$('.products-slick').each(function() {
 		var $this = $(this),
-				$nav = $this.attr('data-nav');
+			$nav = $this.attr('data-nav');
 
 		$this.slick({
 			slidesToShow: 4,
@@ -29,27 +29,26 @@
 			arrows: true,
 			appendArrows: $nav ? $nav : false,
 			responsive: [{
-	        breakpoint: 991,
-	        settings: {
-	          slidesToShow: 2,
-	          slidesToScroll: 1,
-	        }
-	      },
-	      {
-	        breakpoint: 480,
-	        settings: {
-	          slidesToShow: 1,
-	          slidesToScroll: 1,
-	        }
-	      },
-	    ]
+				breakpoint: 991,
+				settings: {
+					slidesToShow: 2,
+					slidesToScroll: 1,
+				}
+			},
+			{
+				breakpoint: 480,
+				settings: {
+					slidesToShow: 1,
+					slidesToScroll: 1,
+				}
+			}]
 		});
 	});
 
 	// Products Widget Slick
 	$('.products-widget-slick').each(function() {
 		var $this = $(this),
-				$nav = $this.attr('data-nav');
+			$nav = $this.attr('data-nav');
 
 		$this.slick({
 			infinite: true,
@@ -63,106 +62,119 @@
 
 	/////////////////////////////////////////
 
-	// Product Main img Slick
-	$('#product-main-img').slick({
-    infinite: true,
-    speed: 300,
-    dots: false,
-    arrows: true,
-    fade: true,
-    asNavFor: '#product-imgs',
-  });
+	// Traducción de la página
+	const translations = {
+		en: {
+			currency: "USD",
+			account: "My Account",
+			login: "Login",
+			register: "Register",
+			search: "Search products...",
+		},
+		es: {
+			currency: "USD",
+			account: "Mi Cuenta",
+			login: "Iniciar Sesión",
+			register: "Registrarse",
+			search: "Buscar productos...",
+		},
+		fr: {
+			currency: "USD",
+			account: "Mon Compte",
+			login: "Se connecter",
+			register: "S'inscrire",
+			search: "Rechercher des produits...",
+		}
+	};
 
-	// Product imgs Slick
-  $('#product-imgs').slick({
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    arrows: true,
-    centerMode: true,
-    focusOnSelect: true,
-		centerPadding: 0,
-		vertical: true,
-    asNavFor: '#product-main-img',
-		responsive: [{
-        breakpoint: 991,
-        settings: {
-					vertical: false,
-					arrows: false,
-					dots: true,
-        }
-      },
-    ]
-  });
+	const languageSelector = document.getElementById("language-selector");
+	const currencyElement = document.querySelector(".fa-dollar").parentNode;
+	const accountElement = document.querySelector(".fa-user-o").parentNode;
 
-	// Product img zoom
-	var zoomMainProduct = document.getElementById('product-main-img');
-	if (zoomMainProduct) {
-		$('#product-main-img .product-preview').zoom();
+	function updateLanguage(lang) {
+		localStorage.setItem("selectedLanguage", lang);
+		currencyElement.innerHTML = `<i class="fa fa-dollar"></i> ${translations[lang].currency}`;
+		accountElement.innerHTML = `<i class="fa fa-user-o"></i> ${translations[lang].account}`;
 	}
+
+	languageSelector.addEventListener("change", function() {
+		updateLanguage(this.value);
+	});
+
+	const savedLanguage = localStorage.getItem("selectedLanguage") || "en";
+	languageSelector.value = savedLanguage;
+	updateLanguage(savedLanguage);
 
 	/////////////////////////////////////////
 
-	// Input number
-	$('.input-number').each(function() {
-		var $this = $(this),
-		$input = $this.find('input[type="number"]'),
-		up = $this.find('.qty-up'),
-		down = $this.find('.qty-down');
+	// Cambio de Moneda
+	const currencySelector = document.getElementById("currency-selector");
 
-		down.on('click', function () {
-			var value = parseInt($input.val()) - 1;
-			value = value < 1 ? 1 : value;
-			$input.val(value);
-			$input.change();
-			updatePriceSlider($this , value)
-		})
+	function updateCurrency(currency) {
+		localStorage.setItem("selectedCurrency", currency);
+		document.querySelectorAll(".product-price").forEach(price => {
+			let amount = parseFloat(price.dataset.originalPrice);
+			price.textContent = formatCurrency(amount, currency);
+		});
+	}
 
-		up.on('click', function () {
-			var value = parseInt($input.val()) + 1;
-			$input.val(value);
-			$input.change();
-			updatePriceSlider($this , value)
-		})
+	function formatCurrency(amount, currency) {
+		const rates = { USD: 1, EUR: 0.91, MXN: 17.56, GBP: 0.76 };
+		let converted = amount * rates[currency];
+		return new Intl.NumberFormat("en-US", {
+			style: "currency",
+			currency: currency
+		}).format(converted);
+	}
+
+	currencySelector.addEventListener("change", function() {
+		updateCurrency(this.value);
 	});
 
-	var priceInputMax = document.getElementById('price-max'),
-			priceInputMin = document.getElementById('price-min');
+	const savedCurrency = localStorage.getItem("selectedCurrency") || "USD";
+	currencySelector.value = savedCurrency;
+	updateCurrency(savedCurrency);
 
-	priceInputMax.addEventListener('change', function(){
-		updatePriceSlider($(this).parent() , this.value)
-	});
+	/////////////////////////////////////////
 
-	priceInputMin.addEventListener('change', function(){
-		updatePriceSlider($(this).parent() , this.value)
-	});
+	// Inicio de Sesión y Registro
+	const loginBtn = document.getElementById("login-btn");
+	const registerBtn = document.getElementById("register-btn");
 
-	function updatePriceSlider(elem , value) {
-		if ( elem.hasClass('price-min') ) {
-			console.log('min')
-			priceSlider.noUiSlider.set([value, null]);
-		} else if ( elem.hasClass('price-max')) {
-			console.log('max')
-			priceSlider.noUiSlider.set([null, value]);
+	loginBtn.addEventListener("click", function() {
+		let email = prompt("Enter your email:");
+		let password = prompt("Enter your password:");
+
+		if (email && password) {
+			localStorage.setItem("loggedInUser", email);
+			updateAccountStatus(email);
 		}
+	});
+
+	registerBtn.addEventListener("click", function() {
+		let email = prompt("Enter your email to register:");
+		let password = prompt("Set your password:");
+
+		if (email && password) {
+			localStorage.setItem("loggedInUser", email);
+			alert("Registration successful!");
+			updateAccountStatus(email);
+		}
+	});
+
+	function updateAccountStatus(email) {
+		document.querySelector(".account-toggle").innerHTML = `<i class="fa fa-user-o"></i> ${email}`;
+		document.getElementById("account-menu").innerHTML = `
+			<li><a href="#" id="logout-btn">Logout</a></li>
+		`;
+
+		document.getElementById("logout-btn").addEventListener("click", function() {
+			localStorage.removeItem("loggedInUser");
+			location.reload();
+		});
 	}
 
-	// Price Slider
-	var priceSlider = document.getElementById('price-slider');
-	if (priceSlider) {
-		noUiSlider.create(priceSlider, {
-			start: [1, 999],
-			connect: true,
-			step: 1,
-			range: {
-				'min': 1,
-				'max': 999
-			}
-		});
-
-		priceSlider.noUiSlider.on('update', function( values, handle ) {
-			var value = values[handle];
-			handle ? priceInputMax.value = value : priceInputMin.value = value
-		});
-	}
+	let savedUser = localStorage.getItem("loggedInUser");
+	if (savedUser) updateAccountStatus(savedUser);
 
 })(jQuery);
