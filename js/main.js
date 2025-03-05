@@ -60,39 +60,55 @@
 		});
 	});
 
+	/////////////////////////////////////////
+
 	$(document).ready(function () {
-	$('#support-form').on('submit', function (e) {
-		e.preventDefault();
-
-		// Mostrar pantalla de carga
-		$('#form-response').removeClass('alert-success alert-danger').addClass('alert-info').text('Enviando...').show();
-
-		const name = $('#name').val();
-		const email = $('#email').val();
-		const message = $('#message').val();
-
-		// Simulación de envío de correo
-		setTimeout(() => {
-			// Aquí iría la lógica real de envío de correo
-
-			// Simular éxito en el envío
-			$('#form-response').removeClass('alert-info').addClass('alert-success').text('¡Mensaje enviado exitosamente!');
-
-			// Ocultar modal después de 2 segundos
+		$('#support-form').on('submit', function (e) {
+			e.preventDefault();
+	
+			// Validate Inputs
+			const name = $('#name').val();
+			const email = $('#email').val();
+			const reason = $('#reason').val();
+			const message = $('#message').val();
+			const formResponse = $('#form-response');
+	
+			if (!name || !email || !reason || !message) {
+				formResponse.html("⚠️ All fields are required.").css("color", "red").fadeIn();
+				return;
+			}
+	
+			// Show Loading Screen
+			formResponse.removeClass("alert-success alert-danger").addClass("alert-info").html("⏳ Sending...").fadeIn();
+	
 			setTimeout(() => {
-				$('#contactModal').modal('hide');
-				$('#form-response').hide();
-				$('#support-form')[0].reset();
+				// Simulate successful message submission
+				formResponse.removeClass("alert-info").addClass("alert-success").html("✅ Message sent successfully!");
+	
+				// Hide modal after 2 seconds
+				setTimeout(() => {
+					$('#contactModal').modal('hide');
+					formResponse.hide();
+					$('#support-form')[0].reset();
+				}, 2000);
 			}, 2000);
-		}, 2000);
+		});
+	
+		// Modal Open Animation
+		$('#contactModal').on('show.bs.modal', function () {
+			$(".modal-content").css("transform", "scale(0.9)");
+			setTimeout(() => {
+				$(".modal-content").css("transform", "scale(1)");
+			}, 100);
+		});
+	
+		// Reset form on modal close
+		$('#contactModal').on('hidden.bs.modal', function () {
+			$('#form-response').hide();
+			$('#support-form')[0].reset();
+		});
 	});
-
-	// Limpiar mensajes al cerrar la ventana modal
-	$('#contactModal').on('hidden.bs.modal', function () {
-		$('#form-response').hide();
-		$('#support-form')[0].reset();
-	});
-	});
+	
 
 	/////////////////////////////////////////
 
