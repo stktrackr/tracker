@@ -12,26 +12,21 @@ async function fetchAllProducts() {
         document.getElementById("loader").style.display = "none";
 
         if (!data.search_results || data.search_results.length === 0) {
-            productTableBody.innerHTML = "<tr><td colspan='9'>No products available.</td></tr>";
+            productTableBody.innerHTML = "<tr><td colspan='7'>No products available.</td></tr>";
             return;
         }
 
         let rows = "";
         data.search_results.forEach((product) => {
-            let productTitle = product.title.length > 40 ? product.title.substring(0, 40) + "..." : product.title;
-            let productDescription = product.title.length > 40 ? product.title : "No description available";
-
             rows += `
                 <tr>
-                    <td><img src="${product.image}" alt="${product.title}"></td>
-                    <td class="product-title">${productTitle}</td>
-                    <td class="product-description">${productDescription}</td>
-                    <td>${product.category || "General"}</td>
-                    <td>${product.price ? `$${product.price.value}` : "Not Available"}</td>
-                    <td>${new Date().toLocaleDateString()}</td>
+                    <td><img src="${product.image}" alt="Product"></td>
+                    <td>${product.title.length > 30 ? product.title.substring(0, 30) + "..." : product.title}</td>
+                    <td>${product.price ? `$${product.price.value}` : "N/A"}</td>
                     <td>${product.stock_status || "In Stock"}</td>
                     <td>⭐ ${product.rating || "N/A"}</td>
-                    <td><a href="${product.link}" target="_blank">View on Amazon</a></td>
+                    <td>${new Date().toLocaleDateString()}</td>
+                    <td><a href="${product.link}" target="_blank">View</a></td>
                 </tr>
             `;
         });
@@ -43,5 +38,8 @@ async function fetchAllProducts() {
     }
 }
 
-// Ejecutar la carga de productos al iniciar la página
-document.addEventListener("DOMContentLoaded", fetchAllProducts);
+// Ejecutar la carga de productos y actualizar cada 30 segundos
+document.addEventListener("DOMContentLoaded", () => {
+    fetchAllProducts();
+    setInterval(fetchAllProducts, 30000); // Actualiza cada 30 segundos
+});

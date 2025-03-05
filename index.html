@@ -3,47 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Price Tracker</title>
+    <title>Price Tracker - Dashboard</title>
     <link rel="stylesheet" href="./css/styles.css">
-    <script src="./js/script.js"></script>
+    <script defer src="./js/script.js"></script>
 </head>
 <body>
     <header>
-        <h1>Price Tracker</h1>
-        <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Products</a></li>
-                <li><a href="#">Alerts</a></li>
-                <li><a href="#">Contact</a></li>
-                <li><a href="#">Login</a></li>
-            </ul>
-        </nav>
+        <h1>📊 Price Tracker Dashboard</h1>
     </header>
 
-    <section class="product-dashboard">
-        <h2>📊 Product Market Overview</h2>
-        <div class="table-container">
-            <div id="loader">Loading products...</div>
-            <table id="product-table">
-                <thead>
-                    <tr>
-                        <th>Image</th>
-                        <th>Product</th>
-                        <th>Description</th>
-                        <th>Category</th>
-                        <th>Price</th>
-                        <th>Last Updated</th>
-                        <th>Stock</th>
-                        <th>Rating</th>
-                        <th>View</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Aquí se insertarán dinámicamente los productos -->
-                </tbody>
-            </table>
-        </div>
+    <section class="dashboard-container">
+        <h2>Market Overview</h2>
+        <div id="loader">Loading products...</div>
+        <table id="product-table">
+            <thead>
+                <tr>
+                    <th>Image</th>
+                    <th>Product</th>
+                    <th>Price ($)</th>
+                    <th>Stock</th>
+                    <th>Rating</th>
+                    <th>Last Updated</th>
+                    <th>View</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Data will be inserted here dynamically -->
+            </tbody>
+        </table>
     </section>
 
     <footer>

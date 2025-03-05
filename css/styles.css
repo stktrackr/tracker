@@ -10,23 +10,9 @@ body {
 header {
     background-color: #15161D;
     color: white;
-    padding: 15px 20px;
+    padding: 15px;
     text-align: center;
-}
-
-nav ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-nav ul li {
-    display: inline;
-    margin: 0 15px;
-}
-
-nav ul li a {
-    color: white;
-    text-decoration: none;
+    font-size: 20px;
 }
 
 /* Loader */
@@ -37,25 +23,21 @@ nav ul li a {
     margin: 20px;
 }
 
-/* Product Table */
-.product-dashboard {
+/* Dashboard */
+.dashboard-container {
     width: 90%;
     margin: auto;
     text-align: center;
     padding: 20px;
 }
 
-.table-container {
-    overflow-x: auto;
-    background: #fff;
-    padding: 10px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
 table {
     width: 100%;
     border-collapse: collapse;
+    background: white;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 th, td {
@@ -69,20 +51,12 @@ th {
     color: white;
 }
 
+/* Uniform Product Image Size */
 td img {
-    width: 60px;
-    height: auto;
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
     border-radius: 5px;
-}
-
-td .product-title {
-    font-weight: bold;
-    font-size: 14px;
-}
-
-td .product-description {
-    font-size: 12px;
-    color: gray;
 }
 
 tr:hover {
@@ -90,9 +64,6 @@ tr:hover {
 }
 
 @media (max-width: 768px) {
-    .table-container {
-        overflow-x: auto;
-    }
     table {
         font-size: 12px;
     }
