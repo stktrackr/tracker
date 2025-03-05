@@ -4,40 +4,62 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Live Price Tracker</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/script.js" defer></script>
 </head>
 <body>
+
+    <!-- Encabezado -->
     <header>
         <h1>📊 Live Price Tracker</h1>
         <p>Real-time market data at your fingertips</p>
     </header>
 
-    <section class="market-overview">
-        <h2>🔥 Market Overview</h2>
-        <label for="category">Filter by Category:</label>
-        <select id="category">
-            <option value="all">All</option>
-            <option value="electronics">Electronics</option>
-            <option value="fashion">Fashion</option>
-        </select>
-        
-        <table>
-            <thead>
-                <tr>
-                    <th>📷 Product</th>
-                    <th>💰 Price</th>
-                    <th>📈 Trend</th>
-                    <th>📦 Stock</th>
-                    <th>⭐ Rating</th>
-                    <th>🔗 View</th>
-                </tr>
-            </thead>
-            <tbody id="product-list">
-                <tr><td colspan="6">Loading live market data...</td></tr>
-            </tbody>
-        </table>
-    </section>
+    <!-- Contenedor Principal -->
+    <main>
 
-    <script src="script.js"></script>
+        <!-- Market Overview -->
+        <section class="market-overview">
+            <h2>🔥 Market Overview</h2>
+            <label for="categoryFilter">Filter by Category:</label>
+            <select id="categoryFilter">
+                <option value="all">All</option>
+                <option value="electronics">Electronics</option>
+                <option value="fashion">Fashion</option>
+                <option value="home">Home</option>
+                <option value="beauty">Beauty</option>
+                <option value="sports">Sports</option>
+            </select>
+            <p id="loadingMessage">🔄 Loading live market data...</p>
+        </section>
+
+        <!-- Tabla de Productos -->
+        <section class="product-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>📷 Product</th>
+                        <th>💰 Price</th>
+                        <th>📈 Trend</th>
+                        <th>📦 Stock</th>
+                        <th>⭐ Rating</th>
+                        <th>🔗 View</th>
+                    </tr>
+                </thead>
+                <tbody id="productList">
+                    <tr>
+                        <td colspan="6">⚠️ Error loading data.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 Price Tracker | Live Updates</p>
+    </footer>
+
 </body>
 </html>
