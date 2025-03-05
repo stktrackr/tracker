@@ -101,45 +101,6 @@ nav ul li a {
     font-weight: bold;
 }
 
-/* Price History Section */
-#price-history {
-    text-align: center;
-    margin: 40px 0;
-}
-
-canvas {
-    max-width: 600px;
-    margin: auto;
-}
-
-/* Alerts Section */
-#alerts {
-    text-align: center;
-    padding: 20px;
-    background: #f0f0f0;
-}
-
-#alert-email {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    width: 50%;
-}
-
-#set-alert-btn {
-    background: #D10204;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    cursor: pointer;
-    margin-left: 10px;
-    border-radius: 5px;
-}
-
-#set-alert-btn:hover {
-    background: #B80002;
-}
-
 /* Footer */
 footer {
     text-align: center;
@@ -147,24 +108,4 @@ footer {
     background: #1E1F29;
     color: white;
     margin-top: 20px;
-}
-
-/* Responsive Design */
-@media screen and (max-width: 768px) {
-    .search-container input {
-        width: 80%;
-    }
-
-    .products-container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .product-card {
-        width: 90%;
-    }
-
-    #alert-email {
-        width: 80%;
-    }
 }
