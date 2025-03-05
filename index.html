@@ -24,10 +24,20 @@
     </header>
 
     <!-- Search Section -->
-    <section class="search-container">
+    <div class="search-container">
         <input type="text" id="search-query" placeholder="Search for a product...">
+        
+        <!-- Dropdown para filtrar categorías -->
+        <select id="category-filter">
+            <option value="all">All Categories</option>
+            <option value="electronics">Electronics</option>
+            <option value="books">Books</option>
+            <option value="video-games">Video Games</option>
+            <option value="toys">Toys</option>
+        </select>
+        
         <button id="search-btn">🔍 Search</button>
-    </section>
+    </div>
 
     <!-- Product Display Section -->
     <section id="product-list">
