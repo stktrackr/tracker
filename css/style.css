@@ -1,6 +1,4 @@
 /*
-Template Name: Electro - HTML Ecommerce Template
-Author: yaminncco
 
 Colors:
 	Body 		: #333
@@ -21,6 +19,7 @@ Table OF Contents
 ------ Breadcrumb
 2 > HEADER
 ------ Top header
+------ Contact Modal
 ------ Logo
 ------ Search
 ------ Cart
@@ -443,45 +442,83 @@ textarea.input {
 	Contact Modal
 \*----------------------------*/
 
+/* Improved Contact Modal Styling */
+.contact-modal .modal-content {
+  background: #1E1F29; /* Dark background */
+  color: #E4E7ED; /* Light text */
+  border-radius: 12px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+  transform: scale(0.9);
+  transition: transform 0.3s ease-out;
+}
+
+.contact-modal.show .modal-content {
+  transform: scale(1);
+}
+
 .modal-header {
-  background-color: #007bff;
+  background: #D10204; /* Primary Red */
   color: white;
   border-bottom: none;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
 }
 
 .modal-title {
-  margin: 0 auto;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
 }
 
 .close {
   color: white;
-  opacity: 1;
+  font-size: 22px;
 }
 
 .modal-body {
-  padding: 2rem;
+  padding: 25px;
 }
 
-.form-group label {
-  font-weight: bold;
+/* Input and Select Fields */
+.form-control {
+  background: #B9BABC; /* Soft Gray */
+  border: none;
+  padding: 12px;
+  border-radius: 5px;
+  color: #15161D;
+  font-size: 14px;
 }
 
+.form-control:focus {
+  outline: none;
+  box-shadow: 0px 0px 10px rgba(209, 2, 4, 0.5);
+}
+
+/* Submit Button */
 .btn-primary {
-  background-color: #007bff;
-  border-color: #007bff;
-  transition: background-color 0.3s ease;
+  background: #D10204; /* Primary Red */
+  border: none;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  width: 100%;
+  border-radius: 8px;
+  transition: background 0.3s ease-in-out;
 }
 
 .btn-primary:hover {
-  background-color: #0056b3;
-  border-color: #0056b3;
+  background: #B80002;
 }
 
+/* Confirmation Message */
 #form-response {
   display: none;
   text-align: center;
   font-weight: bold;
+  padding: 10px;
+  border-radius: 5px;
 }
+
 
 /*----------------------------*\
 	Logo
