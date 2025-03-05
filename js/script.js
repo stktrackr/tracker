@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 async function loadDefaultProducts() {
-    const API_KEY = "TU_API_KEY";
+    const API_KEY = "53C09080269C4EFB88ECE212F519E7E4";
     const BASE_URL = `https://api.rainforestapi.com/request?api_key=${API_KEY}&type=bestsellers&amazon_domain=amazon.com`;
 
     try {
