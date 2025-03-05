@@ -89,7 +89,7 @@ ul, ol {
 	Buttons
 \*----------------------------*/
 
-.primary-btn {
+.primary-btn{
   display: inline-block;
   padding: 12px 30px;
   background-color: #D10024;
@@ -101,11 +101,13 @@ ul, ol {
   text-align: center;
   -webkit-transition: 0.2s all;
   transition: 0.2s all;
+  z-index: -1;
 }
 
-.primary-btn:hover, .primary-btn:focus {
+.primary-btn:hover,
+.primary-btn:focus {
   opacity: 0.9;
-  color: #FFF;
+  color: #414141;
 }
 
 /*----------------------------*\
@@ -418,7 +420,7 @@ textarea.input {
 .header-links li {
   display: inline-block;
   margin-right: 15px;
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .header-links li:last-child {
@@ -442,10 +444,10 @@ textarea.input {
 	Contact Modal
 \*----------------------------*/
 
-/* Improved Contact Modal Styling */
+
 .contact-modal .modal-content {
-  background: #1E1F29; /* Dark background */
-  color: #E4E7ED; /* Light text */
+  background: #333542; /* Dark background */
+  color: #f5f9ff; /* Light text */
   border-radius: 12px;
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
   transform: scale(0.9);
@@ -456,8 +458,9 @@ textarea.input {
   transform: scale(1);
 }
 
+
 .modal-header {
-  background: #D10204; /* Primary Red */
+  background: rgba(209, 0, 35, 0.486); /* Primary Red */
   color: white;
   border-bottom: none;
   border-top-left-radius: 12px;
@@ -467,15 +470,12 @@ textarea.input {
 .modal-title {
   font-family: 'Montserrat', sans-serif;
   font-weight: bold;
+  color: white;
 }
 
 .close {
   color: white;
   font-size: 22px;
-}
-
-.modal-body {
-  padding: 25px;
 }
 
 /* Input and Select Fields */
@@ -493,22 +493,9 @@ textarea.input {
   box-shadow: 0px 0px 10px rgba(209, 2, 4, 0.5);
 }
 
-/* Submit Button */
-.btn-primary {
-  background: #D10204; /* Primary Red */
-  border: none;
-  padding: 12px;
-  font-size: 16px;
-  font-weight: bold;
-  text-transform: uppercase;
-  width: 100%;
-  border-radius: 8px;
-  transition: background 0.3s ease-in-out;
-}
-
-.btn-primary:hover {
+/* .btn-primary:hover {
   background: #B80002;
-}
+} */
 
 /* Confirmation Message */
 #form-response {
