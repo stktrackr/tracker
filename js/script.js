@@ -1,36 +1,28 @@
-const express = require("express");
-const cors = require("cors");
-
-const app = express();
-const PORT = process.env.PORT || 3000;
-
-// Habilitar CORS para evitar problemas con el frontend
-app.use(cors());
-
-// Servir archivos estáticos (HTML, CSS, JS)
-app.use(express.static("public"));
-
-// Ruta de prueba para verificar que el servidor funciona
-app.get("/api/status", (req, res) => {
-    res.json({ message: "Server is running on Render!" });
-});
-
-// Ruta para manejar los productos (Ejemplo de API)
-app.get("/api/products", async (req, res) => {
+async function fetchProducts() {
     try {
-        // Aquí podrías conectar con una API real o base de datos
-        const products = [
-            { id: 1, name: "PlayStation 5", price: "$499" },
-            { id: 2, name: "RTX 3060", price: "$379" },
-            { id: 3, name: "iPhone 14 Pro", price: "$999" }
-        ];
-        res.json(products);
-    } catch (error) {
-        res.status(500).json({ error: "Error fetching products" });
-    }
-});
+        const response = await fetch("https://your-render-app.onrender.com/api/products"); // REEMPLAZAR con la URL de Render
+        const data = await response.json();
 
-// Iniciar servidor
-app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-});
+        const productList = document.getElementById("product-list");
+        productList.innerHTML = "";
+
+        data.forEach(product => {
+            const row = document.createElement("tr");
+            row.innerHTML = `
+                <td>${product.name}</td>
+                <td>${product.price}</td>
+                <td>📉 Up/Down</td>
+                <td>${product.stock}</td>
+                <td>⭐ ${product.rating}</td>
+                <td><a href="${product.link}" target="_blank">🔗 Amazon</a></td>
+            `;
+            productList.appendChild(row);
+        });
+    } catch (error) {
+        console.error("Error fetching products:", error);
+        document.getElementById("product-list").innerHTML = "<tr><td colspan='6'>Error loading data.</td></tr>";
+    }
+}
+
+// Cargar los productos al iniciar la página
+document.addEventListener("DOMContentLoaded", fetchProducts);

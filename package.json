@@ -1,0 +1,17 @@
+{
+    "name": "price-tracker",
+    "version": "1.0.0",
+    "description": "Live Price Tracker deployed on Render",
+    "main": "server.js",
+    "scripts": {
+      "start": "node server.js"
+    },
+    "dependencies": {
+      "express": "^4.17.3",
+      "cors": "^2.8.5"
+    },
+    "engines": {
+      "node": ">=14.0.0"
+    }
+  }
+  

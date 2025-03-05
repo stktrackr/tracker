@@ -1,115 +1,49 @@
-/* Apple-Inspired Minimalist Theme */
-@import url('https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;600;700&display=swap');
-
 body {
-    font-family: "SF Pro Display", sans-serif;
-    background-color: #111;
+    font-family: Arial, sans-serif;
+    background-color: #1a1a1a;
     color: #f5f5f5;
     text-align: center;
-    margin: 0;
-    padding: 0;
 }
 
-/* Header */
-header {
-    background: linear-gradient(90deg, #0f0f0f, #232323);
-    padding: 20px;
-    font-size: 22px;
-    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
+h1 {
+    color: #ffcc00;
 }
 
-/* Market Overview */
-.market-container {
+.market-overview {
+    background-color: #292929;
+    padding: 15px;
+    border-radius: 8px;
+    margin: 20px auto;
+    width: 60%;
+}
+
+button {
+    background-color: #ffcc00;
+    color: black;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #ffaa00;
+}
+
+table {
     width: 80%;
     margin: auto;
-    padding: 20px;
-}
-
-/* Filter Section */
-.filter-section {
-    margin-bottom: 20px;
-}
-
-select {
-    padding: 8px;
-    font-size: 16px;
-    border-radius: 6px;
-    background-color: #222;
-    color: white;
-    border: 1px solid #555;
-}
-
-/* Table */
-table {
-    width: 100%;
     border-collapse: collapse;
-    border-radius: 12px;
-    overflow: hidden;
 }
 
 th, td {
-    padding: 15px;
-    text-align: center;
+    padding: 10px;
+    border-bottom: 1px solid #444;
 }
 
 th {
     background-color: #222;
-    color: white;
 }
 
-td img {
-    width: 40px;
-    height: 40px;
-    object-fit: cover;
-    border-radius: 8px;
-}
-
-tr:nth-child(even) {
-    background-color: #1c1c1c;
-}
-
-tr:hover {
-    background-color: #333;
-    transition: 0.3s;
-}
-
-.product-card {
-    border: 1px solid #ddd;
-    padding: 10px;
-    width: 200px;
-    text-align: center;
-    margin: 10px;
-    display: inline-block;
-}
-
-.product-card img {
-    width: 100px;
-    height: auto;
-}
-
-.product-card a {
-    display: block;
-    margin-top: 10px;
-    color: blue;
-    text-decoration: none;
-}
-
-/* Price Change Color */
-.price-up {
-    color: #ff4c4c;
-}
-
-.price-down {
-    color: #4caf50;
-}
-
-.price-neutral {
-    color: #bbb;
-}
-
-/* Footer */
-footer {
-    background-color: #15161D;
-    padding: 15px;
-    margin-top: 20px;
+a {
+    color: #ffcc00;
 }
