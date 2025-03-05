@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Price Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <header>
+        <nav>
+            <h1>Price Tracker</h1>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Products</a></li>
+                <li><a href="#">Alerts</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#" id="login-btn">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Search Section -->
+    <section class="search-container">
+        <input type="text" id="search-query" placeholder="Search for a product...">
+        <button id="search-btn">🔍 Search</button>
+    </section>
+
+    <!-- Product Display Section -->
+    <section id="product-list">
+        <h2>Latest Products</h2>
+        <div class="products-container">
+            <!-- Products will be loaded dynamically -->
+        </div>
+    </section>
+
+    <!-- Price History Section -->
+    <section id="price-history">
+        <h2>Price History</h2>
+        <canvas id="priceChart"></canvas>
+    </section>
+
+    <!-- Alerts Section -->
+    <section id="alerts">
+        <h2>Set Price Alerts</h2>
+        <p>Receive notifications when the price of a product drops.</p>
+        <input type="email" id="alert-email" placeholder="Enter your email">
+        <button id="set-alert-btn">Set Alert</button>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Price Tracker. All Rights Reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
