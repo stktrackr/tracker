@@ -6,27 +6,41 @@ require('dotenv').config();
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Middleware
 app.use(cors());
 app.use(express.json());
 
-// Ruta para obtener datos desde la API
+// API de MercadoLibre (puedes cambiar "MLA" para otro país)
+const BASE_URL = "https://api.mercadolibre.com/sites/MLA/search?q=";
+
+// Ruta principal (verificar que el servidor está corriendo)
+app.get('/', (req, res) => {
+    res.send('🚀 Price Tracker API is running with real data!');
+});
+
+// Ruta para obtener productos reales de MercadoLibre
 app.get('/api/products', async (req, res) => {
     try {
-        const response = await axios.get('URL_DE_LA_NUEVA_API_AQUI');
-        res.json(response.data);
+        const { category } = req.query; // Obtener categoría desde la URL
+        const query = category ? category : "laptops"; // Laptops por defecto
+
+        const response = await axios.get(`${BASE_URL}${query}`);
+        const products = response.data.results.map(product => ({
+            id: product.id,
+            name: product.title,
+            price: product.price,
+            image: product.thumbnail,
+            stock: product.available_quantity > 0,
+            url: product.permalink
+        }));
+
+        res.json(products);
     } catch (error) {
-        console.error('Error fetching data:', error);
-        res.status(500).json({ message: 'Error retrieving data' });
+        console.error("Error fetching data:", error);
+        res.status(500).json({ message: "Error retrieving data" });
     }
 });
 
-// Ruta para verificar que el servidor corre bien
-app.get('/', (req, res) => {
-    res.send('🚀 Price Tracker API is running!');
-});
-
-// Iniciar servidor
+// Iniciar el servidor
 app.listen(PORT, () => {
     console.log(`✅ Server running on port ${PORT}`);
 });
